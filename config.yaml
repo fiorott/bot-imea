@@ -1,0 +1,56 @@
+# ---------------------------------------------------------------------------
+# Configuracao do Bot IMEA
+# ---------------------------------------------------------------------------
+# Para coletar outra cadeia (soja, milho, algodao...), basta marcar
+# "ativo: true" no item correspondente. Nenhuma alteracao de codigo e
+# necessaria: o bot le a definicao dos indicadores direto da pagina.
+# ---------------------------------------------------------------------------
+
+saida:
+  # Pasta onde o Excel e o banco serao gravados.
+  # Para publicar direto no SharePoint, aponte para a pasta local
+  # sincronizada pelo OneDrive. Exemplo:
+  #   pasta: "C:/Users/fioro/Empresa/Indicadores IMEA"
+  pasta: "dados"
+  banco: "imea.sqlite"
+  # Um arquivo Excel por cadeia: imea_boi.xlsx, imea_soja.xlsx, ...
+  prefixo_excel: "imea"
+
+coleta:
+  timeout_segundos: 60
+  tentativas: 3
+  espera_entre_tentativas: 5
+  user_agent: >-
+    Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+    (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+
+cadeias:
+  - nome: boi
+    rotulo: "Boi"
+    url: "https://www.imea.com.br/imea-site/indicador-boi"
+    ativo: true
+
+  - nome: soja
+    rotulo: "Soja"
+    url: "https://www.imea.com.br/imea-site/indicador-soja"
+    ativo: false
+
+  - nome: milho
+    rotulo: "Milho"
+    url: "https://www.imea.com.br/imea-site/indicador-milho"
+    ativo: false
+
+  - nome: algodao
+    rotulo: "Algodao"
+    url: "https://www.imea.com.br/imea-site/indicador-algodao"
+    ativo: false
+
+  - nome: suino
+    rotulo: "Suino"
+    url: "https://www.imea.com.br/imea-site/indicador-suino"
+    ativo: false
+
+  - nome: leite
+    rotulo: "Leite"
+    url: "https://www.imea.com.br/imea-site/indicador-leite"
+    ativo: false

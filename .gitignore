@@ -1,0 +1,29 @@
+# Ambiente Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Logs (nao versionar)
+logs/
+
+# Credenciais - NUNCA versionar
+.env
+*.secret
+credenciais*.json
+
+# Arquivos temporarios do Excel
+~$*.xlsx
+
+# Sistema operacional
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Observacao: a pasta dados/ (Excel + SQLite) E versionada de proposito,
+# para manter o historico e permitir que o Power BI leia do repositorio.
