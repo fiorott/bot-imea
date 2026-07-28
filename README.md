@@ -43,6 +43,73 @@ Se voce so quer a planilha, sem rodar nada, baixe direto o arquivo
 
 ---
 
+## Conectar o Power BI direto no GitHub (sem instalar nada)
+
+Esta e a forma mais pratica de consumir os dados: o Power BI le o arquivo
+direto da internet, sem Python, sem Git e sem baixar nada manualmente.
+
+1. No Power BI Desktop: **Obter dados** > **Web**
+2. Cole a URL:
+
+```
+https://raw.githubusercontent.com/fiorott/bot-imea/main/dados/imea_boi.xlsx
+```
+
+3. **OK** > em autenticacao, escolha **Anonimo** > **Conectar**
+4. Marque as abas desejadas e clique em **Carregar**
+
+Pronto. Ao clicar em **Atualizar**, o Power BI busca a versao mais recente
+publicada no GitHub.
+
+> Se a conexao falhar em rede corporativa, o proxy provavelmente bloqueia o
+> dominio `raw.githubusercontent.com`. Nesse caso, use uma das opcoes abaixo.
+
+---
+
+## Como baixar pelo site do GitHub
+
+### Opcao 1 - Baixar ZIP (nao precisa de Git)
+
+1. Na pagina do repositorio, clique no botao verde **`< > Code`**
+2. Escolha **Download ZIP**
+3. Clique com o botao direito no arquivo baixado, **Propriedades**, marque
+   **Desbloquear** e confirme (o Windows bloqueia arquivos vindos da internet)
+4. Extraia a pasta
+
+### Opcao 2 - Clonar com Git
+
+No botao **`< > Code`**, use a aba **HTTPS** (ja vem selecionada). Evite SSH,
+que exige chave e costuma ser bloqueado por rede corporativa na porta 22.
+
+```bash
+git clone https://github.com/fiorott/bot-imea.git
+```
+
+A vantagem e que, para receber melhorias depois, basta `git pull`.
+
+### Opcao 3 - Baixar so a planilha
+
+Entre na pasta `dados`, clique em `imea_boi.xlsx` e use o botao
+**Download raw file**.
+
+### Se estiver em uma rede corporativa
+
+**Python sem permissao de administrador:** no instalador oficial, escolha
+*Customize installation* e marque **Install for me only** e
+**Add Python to PATH**.
+
+**Proxy da empresa:** se o `pip install` falhar por conexao, use
+
+```bash
+pip install --proxy http://usuario:senha@endereco-do-proxy:8080 -r requirements.txt
+```
+
+Se o proxy bloquear o acesso ao site do IMEA, o robo nao conseguira coletar.
+Nesse caso, receba o arquivo `imea_boi.xlsx` pronto (por OneDrive ou
+SharePoint) e conecte o Power BI direto nele, sem precisar de Python.
+
+---
+
 ## Uso
 
 ```bash
