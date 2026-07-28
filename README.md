@@ -32,9 +32,14 @@ tela.
 git clone https://github.com/fiorott/bot-imea.git
 cd bot-imea
 pip install -r requirements.txt
+python main.py
 ```
 
-Requisito: Python 3.10 ou superior.
+Requisito: Python 3.10 ou superior. Nao e preciso cadastro, chave de API nem
+configuracao inicial: o IMEA publica esses dados abertamente.
+
+Se voce so quer a planilha, sem rodar nada, baixe direto o arquivo
+`dados/imea_boi.xlsx` pelo botao **Download raw file** no GitHub.
 
 ---
 
